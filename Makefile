@@ -16,9 +16,31 @@ start-database: ## Start database
 	docker run --rm --name articles-database -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=4e6Rg2nFvgqDWuw7sUiG -p 5432:5432 -d postgres || true
 
 start-server: ## Start database
-	symfony serve
+	symfony serve --no-tls
 
 start: start-database start-server
 
 save: 
-	
+	git add . && git commit -m "AutoSave" && git push
+
+schema: 
+	php bin/console doctrine:database:create --if-not-exists 
+	php bin/console doctrine:schema:drop --force
+	php bin/console doctrine:schema:update --force --complete
+
+create-users: ## Création d'utilisateurs
+	./bin/console app:create-user editor@yopmail.com editor ROLE_EDITOR
+	./bin/console app:create-user user@yopmail.com   user   ROLE_USER
+	./bin/console app:create-user admin@yopmail.com  admin  ROLE_ADMIN
+
+create-categories:
+	./bin/console app:create-category "People" people
+	./bin/console app:create-category "Sport" sport
+
+create-articles:
+	./bin/console app:create-article title1 body1 editor@yopmail.com people
+	./bin/console app:create-article title2 body2 editor@yopmail.com people
+	./bin/console app:create-article title3 body3 editor@yopmail.com sport
+	./bin/console app:create-article title4 body4 editor@yopmail.com sport
+
+init: schema create-users create-categories create-articles
