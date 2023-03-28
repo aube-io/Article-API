@@ -14,6 +14,8 @@ class Comment
 
     private Email $email;
 
+    private CommentId $parent;
+
     private string $message;
 
     private \DateTimeImmutable $createdAt;
@@ -40,6 +42,16 @@ class Comment
     public function setEmail(Email $email): void
     {
         $this->email = $email;
+    }
+
+	public function getParent(): CommentId
+    {
+        return $this->parent;
+    }
+
+    public function setParent(CommentId $parent): void
+    {
+        $this->parent = $parent;
     }
 
     public function getMessage(): string

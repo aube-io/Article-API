@@ -38,9 +38,7 @@ create-categories:
 	./bin/console app:create-category "Sport" sport
 
 create-articles:
-	./bin/console app:create-article title1 body1 editor@yopmail.com people
-	./bin/console app:create-article title2 body2 editor@yopmail.com people
-	./bin/console app:create-article title3 body3 editor@yopmail.com sport
-	./bin/console app:create-article title4 body4 editor@yopmail.com sport
+	./bin/console app:create-article page1 "Article Vachement Interessant" editor@yopmail.com people
+	./bin/console app:create-article page2 "Article Vachement Interessant" editor@yopmail.com sport
 
 init: schema create-users create-categories create-articles

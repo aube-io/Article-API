@@ -11,9 +11,9 @@
 		<field name="createdAt" type="datetime_immutable" column="created_at" />
 		<field name="updatedAt" type="datetime_immutable" column="updated_at" />
 		<field name="articleId" column="article_id" />
-
-		<embedded name="email" class="App\Blog\Post\Article\Domain\Entity\Email"
-			use-column-prefix="false" />
+		
+		<embedded name="parent" class="App\Blog\Post\Article\Domain\Entity\CommentId" use-column-prefix="false" />
+		<embedded name="email" class="App\Blog\Post\Article\Domain\Entity\Email" use-column-prefix="false" />
 	</entity>
 
 </doctrine-mapping>
