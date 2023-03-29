@@ -1,0 +1,33 @@
+* {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+body {
+	background: #0f1318;
+	color: white;
+}
+
+section {
+	position: absolute;
+	top: 50vh;
+	left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+ul {
+	list-style: none;
+	border: 1px solid #26303c;;
+}
+
+ul li {
+	padding: 10px;
+	background: #2f3b4a;
+}
+
+ul li:not(:last-child) {
+	border-bottom:1px solid #26303c;
+}

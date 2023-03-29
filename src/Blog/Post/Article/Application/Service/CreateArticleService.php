@@ -11,7 +11,6 @@ use App\Blog\Post\Article\Domain\Repository\ArticleRepositoryInterface;
 use App\Blog\Post\Category\Domain\Repository\CategoryRepositoryInterface;
 use App\Blog\Post\Shared\Domain\Entity\ValueObject\CategoryId;
 use App\Blog\User\Domain\Repository\UserRepositoryInterface;
-use App\Blog\User\Infrastructure\Repository\UserRepository;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Serializer\SerializerInterface;
